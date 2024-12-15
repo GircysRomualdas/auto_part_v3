@@ -1,0 +1,19 @@
+<h1>Part Types</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @part_types.each do |part_type| %>
+      <tr>
+        <td><%= part_type.id %></td>
+        <td><%= part_type.name %></td>
+        <td><%= part_type.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
