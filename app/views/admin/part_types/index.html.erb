@@ -1,10 +1,12 @@
 <h1>Part Types</h1>
+<%= link_to "New part type", new_admin_part_type_path %>
 <table class="table table-hover">
   <thead>
     <tr>
       <th>ID</th>
       <th>Name</th>
       <th>Description</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -13,6 +15,7 @@
         <td><%= part_type.id %></td>
         <td><%= part_type.name %></td>
         <td><%= part_type.description %></td>
+        <td><%= link_to "view", admin_part_type_path(part_type) %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,20 @@
+<%= form_with(model: [:admin, part_type]) do |form| %>
+  <% if part_type.errors.any? %>
+    <ul>
+      <% part_type.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+  <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
