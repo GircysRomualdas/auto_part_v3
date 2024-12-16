@@ -1,6 +1,9 @@
 <div>
   <h1>Show part type</h1>
   <div>
+    <div>
+      <%= @part_type.image.present? ? image_tag(@part_type.image.variant(:show)) : image_tag("https://via.placeholder.com/800") %>
+    </div>
     <p><strong>ID:</strong> <%= @part_type.id %></p>
     <p><strong>Name:</strong> <%= @part_type.name %></p>
     <p><strong>Description:</strong> <%= @part_type.description %></p>

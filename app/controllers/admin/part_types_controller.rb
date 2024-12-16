@@ -44,6 +44,6 @@ class Admin::PartTypesController < AdminController
     end
 
     def part_type_params
-      params.expect(part_type: [ :name, :description ])
+      params.expect(part_type: [ :name, :description, :image ])
     end
 end
