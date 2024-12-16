@@ -1,0 +1,20 @@
+<h1>Car part stocks</h1>
+<%= link_to "New stock", new_admin_car_part_stock_path %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Amount</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |stock| %>
+      <tr>
+        <td><%= stock.id %></td>
+        <td><%= stock.amount %></td>
+        <td><%= link_to "view", [:admin, stock.car_part, stock] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

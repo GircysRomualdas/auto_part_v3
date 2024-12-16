@@ -26,6 +26,11 @@
     <%= form.label :active %>
     <%= form.check_box :active %>
   </div>
+  <% unless car_part.new_record? %>
+    <div>
+      <%= link_to "Part stock", admin_car_part_stocks_path(car_part) %>
+    </div>
+  <% end %>
   <div>
     <% if car_part.images.any? %>
       <div>

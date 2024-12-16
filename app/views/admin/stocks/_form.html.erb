@@ -1,0 +1,16 @@
+<%= form_with(model: [:admin, @car_part, stock]) do |form| %>
+  <% if stock.errors.any? %>
+    <ul>
+      <% stock.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :amount %>
+    <%= form.number_field :amount %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

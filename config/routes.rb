@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   devise_for :admins
 
   namespace :admin do
-    resources :car_parts
+    resources :car_parts do
+      resources :stocks
+    end
     resources :part_types
   end
 

@@ -1,0 +1,9 @@
+<div>
+  <h1>Show stock</h1>
+  <div>
+    <p><strong>ID:</strong> <%= @stock.id %></p>
+    <p><strong>Amount:</strong> <%= @stock.amount %></p>
+  </div>
+  <%= link_to "Edit", edit_admin_car_part_stock_path(@stock) %>
+  <%= button_to "Delete", admin_car_part_stock_path(@stock), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+</div>
