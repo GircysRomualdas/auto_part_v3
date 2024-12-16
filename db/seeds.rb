@@ -36,6 +36,7 @@ car_parts_data = [
 ]
 
 car_parts_data.each do |data|
+  puts "--------------#{data[:part_type_name]}------------------"
   part_type = PartType.find_by(name: data[:part_type_name])
   CarPart.create!(
     name: data[:name],

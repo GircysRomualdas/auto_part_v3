@@ -1,0 +1,16 @@
+<h1>Part Types show</h1>
+<div class="row row-cols-3">
+  <% @car_parts.each do |car_part| %>
+    <div class="col">
+      <div class="card m-3 text-center">
+        <%= link_to car_part_path(car_part) do %>
+          <%= car_part.images.any? ? image_tag(car_part.images.first.variant(:main), class: "card-img-top") :  image_tag("https://via.placeholder.com/200", class: "card-img-top") %>
+          <div class="card-body">
+            <h5 class="card-title"><%= car_part.name %></h5>
+            <p class="card-text"><%= car_part.price %> €</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

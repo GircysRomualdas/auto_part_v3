@@ -1,2 +1,17 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div>
+  <h1>Home</h1>
+  <div class="row row-cols-4">
+    <% @part_types.each do |part_type| %>
+      <%= link_to part_type_path(part_type) do %>
+        <div class="col">
+          <div class="card m-3 text-center">
+            <%= part_type.image.present? ? image_tag(part_type.image.variant(:main), class: "card-img-top") : image_tag("https://via.placeholder.com/200", class: "card-img-top") %>
+            <div class="card-body">
+              <h5 class="card-title"><%= part_type.name %></h5>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

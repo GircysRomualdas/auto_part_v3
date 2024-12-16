@@ -1,0 +1,21 @@
+<h1>Car Parts show</h1>
+<div>
+  <% if @car_part.images.any? %>
+    <% @car_part.images.each do |image| %>
+      <%= image_tag(image.variant(:show)) %>
+    <% end %>
+  <% else %>
+    <%= image_tag("https://via.placeholder.com/300") %>
+  <% end %>
+  <div>
+    <p><strong>name:</strong> <%= @car_part.name %></p>
+    <p><strong>price:</strong> <%= @car_part.price %> €</p>
+    <p><strong>description:</strong> <%= @car_part.description %></p>
+    <p><strong>part_type:</strong> <%= @car_part.part_type.name %></p>
+  </div>
+  <div>
+    <% @car_part.stocks.each do |stock| %>
+      <p><strong>stock:</strong> <%= stock.amount %></p>
+    <% end %>
+  </div>
+</div>
