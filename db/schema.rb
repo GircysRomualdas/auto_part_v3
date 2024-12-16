@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_16_144404) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_16_152841) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -62,6 +62,16 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_16_144404) do
     t.index ["part_type_id"], name: "index_car_parts_on_part_type_id"
   end
 
+  create_table "order_car_parts", force: :cascade do |t|
+    t.integer "car_part_id", null: false
+    t.integer "order_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["car_part_id"], name: "index_order_car_parts_on_car_part_id"
+    t.index ["order_id"], name: "index_order_car_parts_on_order_id"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string "customer_email"
     t.boolean "fulfilled"
@@ -89,5 +99,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_16_144404) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "car_parts", "part_types"
+  add_foreign_key "order_car_parts", "car_parts"
+  add_foreign_key "order_car_parts", "orders"
   add_foreign_key "stocks", "car_parts"
 end

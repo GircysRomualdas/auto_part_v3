@@ -7,6 +7,21 @@
     <p><strong>total_price:</strong> <%= @order.total_price %></p>
     <p><strong>address:</strong> <%= @order.address %></p>
   </div>
-  <%= link_to "Edit", edit_admin_order_path(@order) %>
-  <%= button_to "Delete", admin_order_path(@order), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+  <div>
+    <%= link_to "Edit", edit_admin_order_path(@order) %>
+    <%= button_to "Delete", admin_order_path(@order), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+  </div>
+  <div>
+    <% if @order.order_car_parts.any? %>
+      <div>
+        <p><strong>Car Parts:</strong></p>
+        <% @order.order_car_parts.each do  |order_part| %>
+          <div class="border rounded m-2 p-2 ">
+            <p><strong>Part name:</strong> <%= order_part.car_part.name %></p>
+            <p><strong>Quantity:</strong> <%= order_part.quantity %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
