@@ -1,0 +1,12 @@
+<div>
+  <h1>Show order</h1>
+  <div>
+    <p><strong>ID:</strong> <%= @order.id %></p>
+    <p><strong>customer_email:</strong> <%= @order.customer_email %></p>
+    <p><strong>fulfilled:</strong> <%= @order.fulfilled %></p>
+    <p><strong>total_price:</strong> <%= @order.total_price %></p>
+    <p><strong>address:</strong> <%= @order.address %></p>
+  </div>
+  <%= link_to "Edit", edit_admin_order_path(@order) %>
+  <%= button_to "Delete", admin_order_path(@order), method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+</div>

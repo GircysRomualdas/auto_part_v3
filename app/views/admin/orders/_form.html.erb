@@ -1,0 +1,28 @@
+<%= form_with(model: [:admin, order]) do |form| %>
+  <% if order.errors.any? %>
+    <ul>
+      <% order.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div>
+    <%= form.label :customer_email %>
+    <%= form.text_field :customer_email %>
+  </div>
+  <div>
+    <%= form.label :fulfilled %>
+    <%= form.check_box :fulfilled %>
+  </div>
+  <div>
+    <%= form.label :total_price %>
+    <%= form.number_field :total_price %>
+  </div>
+  <div>
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
