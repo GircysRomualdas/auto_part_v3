@@ -1,2 +1,50 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<div>
+  <h1>Admin home</h1>
+  <div class="row">
+    <div class="card col m-2 p-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Sales today</h5>
+        <p class="card-text"><%= @stats[:sales] %></p>
+      </div>
+    </div>
+    <div class="card col m-2 p-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Today's sale revenue</h5>
+        <p class="card-text"><%= @stats[:revenue] %> €</p>
+      </div>
+    </div>
+    <div class="card col m-2 p-2" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Today's average seles revenue</h5>
+        <p class="card-text"><%= @stats[:avg_sale] %> €</p>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2>Oldest unfulfilled orders</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>customer_email</th>
+          <th>fulfilled</th>
+          <th>total_price</th>
+          <th>address</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+            <td><%= order.customer_email %></td>
+            <td><%= order.fulfilled %></td>
+            <td><%= order.total_price %></td>
+            <td><%= order.address %></td>
+            <td><%= link_to "view", admin_order_path(order) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
