@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_16_002022) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_16_004153) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -51,6 +51,17 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_16_002022) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "car_parts", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.decimal "price"
+    t.integer "part_type_id", null: false
+    t.boolean "active"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["part_type_id"], name: "index_car_parts_on_part_type_id"
+  end
+
   create_table "part_types", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -60,4 +71,5 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_16_002022) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "car_parts", "part_types"
 end

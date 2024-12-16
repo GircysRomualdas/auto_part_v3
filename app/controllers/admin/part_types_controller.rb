@@ -28,7 +28,7 @@ class Admin::PartTypesController < AdminController
     if @part_type.update(part_type_params)
       redirect_to admin_part_type_path(@part_type), notice: "Part type successfully updated."
     else
-      render :new, alert: "Error when updating part type"
+      render :edit, alert: "Error when updating part type"
     end
   end
 
